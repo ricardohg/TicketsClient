@@ -49,7 +49,7 @@ class MockUrlSession: URLSessionProtocol {
 }
 
 class MockURLSessionDataTask: URLSessionDataTaskProtocol {
-    private var resumeWasCalled = false
+    private (set) var resumeWasCalled = false
     
     func resume() {
         resumeWasCalled = true

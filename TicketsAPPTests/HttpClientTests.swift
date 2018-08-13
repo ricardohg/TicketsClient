@@ -40,4 +40,33 @@ class HttpClientTests: XCTestCase {
         assert(session.lastURL == url)
     }
     
+    func test_get_resume_called() {
+        
+        let dataTask = MockURLSessionDataTask()
+        session.nextDataTask = dataTask
+        
+        guard let url = URL(string: "https://mockurl") else {
+            fatalError("URL can't be empty")
+        }
+        
+        httpClient.get(url: url) { (success, response) in
+            // Return data
+        }
+        
+        assert(dataTask.resumeWasCalled)
+    }
+    
+    func test_get_should_return_data() {
+        let expectedData = "{}".data(using: .utf8)
+        
+        session.nextData = expectedData
+        
+        var actualData: Data?
+        httpClient.get(url: URL(string: "http://mockurl")!) { (data, error) in
+            actualData = data
+        }
+        
+        XCTAssertNotNil(actualData)
+    }
+    
 }
