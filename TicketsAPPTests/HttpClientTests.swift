@@ -37,7 +37,7 @@ class HttpClientTests: XCTestCase {
             //
         }
         
-        assert(session.lastURL == url)
+        XCTAssert(session.lastURL == url)
     }
     
     func test_get_resume_called() {
@@ -53,7 +53,7 @@ class HttpClientTests: XCTestCase {
             // Return data
         }
         
-        assert(dataTask.resumeWasCalled)
+        XCTAssert(dataTask.resumeWasCalled)
     }
     
     func test_get_should_return_data() {
