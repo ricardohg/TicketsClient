@@ -69,4 +69,20 @@ class HttpClientTests: XCTestCase {
         XCTAssertNotNil(actualData)
     }
     
+    func test_post_request_with_body() {
+        
+        guard let url = URL(string: "https://mockurl") else {
+            fatalError("URL can't be empty")
+        }
+        
+        let testJsonDictionary = ["test": "test"]
+        let jsonData = try! JSONSerialization.data(withJSONObject: testJsonDictionary, options: .prettyPrinted)
+        
+        httpClient.post(url: url, parameters: testJsonDictionary) { (data, error) in
+            //
+        }
+        
+        XCTAssert(session.bodyData == jsonData)
+    }
+    
 }

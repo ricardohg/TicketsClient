@@ -34,6 +34,7 @@ class MockUrlSession: URLSessionProtocol {
     var nextError: Error?
     
     fileprivate (set) var lastURL: URL?
+    fileprivate (set) var bodyData: Data?
     
     func successHttpURLResponse(request: NSURLRequest) -> URLResponse {
         return HTTPURLResponse(url: request.url!, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: nil)!
@@ -41,6 +42,7 @@ class MockUrlSession: URLSessionProtocol {
     
     func dataTask(with request: NSURLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol {
         lastURL = request.url
+        bodyData = request.httpBody
         
         completionHandler(nextData, successHttpURLResponse(request: request), nextError)
         return nextDataTask
