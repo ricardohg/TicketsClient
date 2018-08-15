@@ -22,3 +22,4 @@ struct Event: Codable {
 struct EventResponse: Codable {
     let events: [Event]
 }
+

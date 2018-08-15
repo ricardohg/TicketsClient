@@ -10,7 +10,6 @@
 		8C9917352121D930007D2DE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9917342121D930007D2DE3 /* AppDelegate.swift */; };
 		8C99173C2121D932007D2DE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C99173B2121D932007D2DE3 /* Assets.xcassets */; };
 		8C99173F2121D932007D2DE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C99173D2121D932007D2DE3 /* LaunchScreen.storyboard */; };
-		8C99174A2121D932007D2DE3 /* TicketsAPPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9917492121D932007D2DE3 /* TicketsAPPTests.swift */; };
 		8C9917552121D932007D2DE3 /* TicketsAPPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9917542121D932007D2DE3 /* TicketsAPPUITests.swift */; };
 		8C9917662121DB53007D2DE3 /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9917652121DB53007D2DE3 /* Events.storyboard */; };
 		8C9917682121DD77007D2DE3 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9917672121DD77007D2DE3 /* EventsTableViewController.swift */; };
@@ -45,7 +44,6 @@
 		8C99173E2121D932007D2DE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C9917402121D932007D2DE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C9917452121D932007D2DE3 /* TicketsAPPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicketsAPPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C9917492121D932007D2DE3 /* TicketsAPPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsAPPTests.swift; sourceTree = "<group>"; };
 		8C99174B2121D932007D2DE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C9917502121D932007D2DE3 /* TicketsAPPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicketsAPPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9917542121D932007D2DE3 /* TicketsAPPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsAPPUITests.swift; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				8C99177221220F73007D2DE3 /* HttpClientTests.swift */,
-				8C9917492121D932007D2DE3 /* TicketsAPPTests.swift */,
 				8C99174B2121D932007D2DE3 /* Info.plist */,
 			);
 			path = TicketsAPPTests;
@@ -317,7 +314,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C99177321220F73007D2DE3 /* HttpClientTests.swift in Sources */,
-				8C99174A2121D932007D2DE3 /* TicketsAPPTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

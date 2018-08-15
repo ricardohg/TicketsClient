@@ -24,14 +24,36 @@ final class HTTPClient {
         self.session = session
     }
     
-    func get(url: URL, callback: @escaping CompleteClosure) {
+    func get(url: URL, parameters:[String: String]?, callback: @escaping CompleteClosure) {
         
-        let request = NSMutableURLRequest(url: url)
-        request.httpMethod = HTTPMethod.get.rawValue
-        let task = session.dataTask(with: request as NSURLRequest) { (data, response, error) in
-            callback(data, error)
+        guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+            print("Error creating url")
+            return
         }
-        task.resume()
+        
+        var components: [URLQueryItem] = []
+        
+        parameters?.forEach { parameter in
+            components.append(URLQueryItem(name: parameter.key, value: parameter.value))
+        }
+        
+        if let _ = parameters {
+            urlComponents.queryItems = components
+        }
+        
+        if let urlRequest = urlComponents.url {
+            
+            let request = NSMutableURLRequest(url: urlRequest)
+            
+            request.httpMethod = HTTPMethod.get.rawValue
+            let task = session.dataTask(with: request as NSURLRequest) { (data, response, error) in
+                callback(data, error)
+            }
+            task.resume()
+        } else {
+            print("Error creating url")
+        }
+        
     }
     
     func post(url: URL, parameters: JSON?, callback: @escaping CompleteClosure) {
@@ -51,5 +73,23 @@ final class HTTPClient {
         }
         task.resume()
         
+    }
+}
+
+// URL Extension to get query parameters
+
+extension URL {
+    
+    public var queryParameters: [String: String]? {
+        guard let components = URLComponents(url: self, resolvingAgainstBaseURL: true), let queryItems = components.queryItems else {
+            return nil
+        }
+        
+        var parameters = [String: String]()
+        for item in queryItems {
+            parameters[item.name] = item.value
+        }
+        
+        return parameters
     }
 }

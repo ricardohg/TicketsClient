@@ -27,7 +27,7 @@ class EventsTableViewController: UITableViewController {
         
         //let session = URLSession(configuration: URLSessionConfiguration.default)
         let client = HTTPClient(session: URLSession.shared)
-        client.get(url: url) { [weak self] (data, error) in
+        client.get(url: url, parameters: nil) { [weak self] (data, error) in
             
             guard let data = data, let s = self else { return }
             

@@ -33,11 +33,34 @@ class HttpClientTests: XCTestCase {
             
         }
         
-        httpClient.get(url: url) { (data, error) in
+        httpClient.get(url: url, parameters: nil) { (data, error) in
             //
         }
         
         XCTAssert(session.lastURL == url)
+    }
+    
+    func test_get_with_parameters() {
+        
+        guard let url = URL(string: "http://mock.com") else {
+            assertionFailure("url is missing")
+            return
+            
+        }
+        
+        let params = ["data": "test"]
+        
+        httpClient.get(url: url, parameters: params) { (data, error) in
+            //
+        }
+        
+        if let lastParams = session.lastURL?.queryParameters {
+            XCTAssert(lastParams == params)
+        }
+        else {
+            XCTAssert(false)
+        }
+        
     }
     
     func test_get_resume_called() {
@@ -49,7 +72,7 @@ class HttpClientTests: XCTestCase {
             fatalError("URL can't be empty")
         }
         
-        httpClient.get(url: url) { (success, response) in
+        httpClient.get(url: url, parameters: nil) { (success, response) in
             // Return data
         }
         
@@ -62,7 +85,7 @@ class HttpClientTests: XCTestCase {
         session.nextData = expectedData
         
         var actualData: Data?
-        httpClient.get(url: URL(string: "http://mockurl")!) { (data, error) in
+        httpClient.get(url: URL(string: "http://mockurl")!, parameters: nil) { (data, error) in
             actualData = data
         }
         
