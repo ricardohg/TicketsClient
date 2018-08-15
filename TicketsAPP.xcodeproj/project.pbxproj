@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		8C9917352121D930007D2DE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9917342121D930007D2DE3 /* AppDelegate.swift */; };
-		8C9917372121D930007D2DE3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9917362121D930007D2DE3 /* ViewController.swift */; };
-		8C99173A2121D930007D2DE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9917382121D930007D2DE3 /* Main.storyboard */; };
 		8C99173C2121D932007D2DE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C99173B2121D932007D2DE3 /* Assets.xcassets */; };
 		8C99173F2121D932007D2DE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C99173D2121D932007D2DE3 /* LaunchScreen.storyboard */; };
-		8C99174A2121D932007D2DE3 /* TicketsAPPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9917492121D932007D2DE3 /* TicketsAPPTests.swift */; };
 		8C9917552121D932007D2DE3 /* TicketsAPPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9917542121D932007D2DE3 /* TicketsAPPUITests.swift */; };
+		8C9917662121DB53007D2DE3 /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9917652121DB53007D2DE3 /* Events.storyboard */; };
+		8C9917682121DD77007D2DE3 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9917672121DD77007D2DE3 /* EventsTableViewController.swift */; };
+		8C99176A2121DDC4007D2DE3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9917692121DDC4007D2DE3 /* Event.swift */; };
+		8C99176C2121E024007D2DE3 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C99176B2121E024007D2DE3 /* EventTableViewCell.swift */; };
+		8C99176E2121E2FD007D2DE3 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C99176D2121E2FD007D2DE3 /* HTTPClient.swift */; };
+		8C99177121220430007D2DE3 /* MockUrlSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C99177021220430007D2DE3 /* MockUrlSession.swift */; };
+		8C99177321220F73007D2DE3 /* HttpClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C99177221220F73007D2DE3 /* HttpClientTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,17 +40,21 @@
 /* Begin PBXFileReference section */
 		8C9917312121D930007D2DE3 /* TicketsAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicketsAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9917342121D930007D2DE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8C9917362121D930007D2DE3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8C9917392121D930007D2DE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8C99173B2121D932007D2DE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C99173E2121D932007D2DE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C9917402121D932007D2DE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C9917452121D932007D2DE3 /* TicketsAPPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicketsAPPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C9917492121D932007D2DE3 /* TicketsAPPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsAPPTests.swift; sourceTree = "<group>"; };
 		8C99174B2121D932007D2DE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C9917502121D932007D2DE3 /* TicketsAPPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicketsAPPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9917542121D932007D2DE3 /* TicketsAPPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsAPPUITests.swift; sourceTree = "<group>"; };
 		8C9917562121D932007D2DE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C9917652121DB53007D2DE3 /* Events.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
+		8C9917672121DD77007D2DE3 /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventsTableViewController.swift; path = Events/EventsTableViewController.swift; sourceTree = "<group>"; };
+		8C9917692121DDC4007D2DE3 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		8C99176B2121E024007D2DE3 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventTableViewCell.swift; path = Events/EventTableViewCell.swift; sourceTree = "<group>"; };
+		8C99176D2121E2FD007D2DE3 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		8C99177021220430007D2DE3 /* MockUrlSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUrlSession.swift; sourceTree = "<group>"; };
+		8C99177221220F73007D2DE3 /* HttpClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClientTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				8C9917342121D930007D2DE3 /* AppDelegate.swift */,
-				8C9917362121D930007D2DE3 /* ViewController.swift */,
-				8C9917382121D930007D2DE3 /* Main.storyboard */,
+				8C9917632121DAD3007D2DE3 /* Models */,
+				8C9917622121DACD007D2DE3 /* Scenes */,
 				8C99173B2121D932007D2DE3 /* Assets.xcassets */,
 				8C99173D2121D932007D2DE3 /* LaunchScreen.storyboard */,
 				8C9917402121D932007D2DE3 /* Info.plist */,
@@ -110,7 +118,7 @@
 		8C9917482121D932007D2DE3 /* TicketsAPPTests */ = {
 			isa = PBXGroup;
 			children = (
-				8C9917492121D932007D2DE3 /* TicketsAPPTests.swift */,
+				8C99177221220F73007D2DE3 /* HttpClientTests.swift */,
 				8C99174B2121D932007D2DE3 /* Info.plist */,
 			);
 			path = TicketsAPPTests;
@@ -123,6 +131,42 @@
 				8C9917562121D932007D2DE3 /* Info.plist */,
 			);
 			path = TicketsAPPUITests;
+			sourceTree = "<group>";
+		};
+		8C9917622121DACD007D2DE3 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				8C9917642121DB20007D2DE3 /* Events */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		8C9917632121DAD3007D2DE3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8C99176F212203ED007D2DE3 /* Mocks */,
+				8C9917692121DDC4007D2DE3 /* Event.swift */,
+				8C99176D2121E2FD007D2DE3 /* HTTPClient.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8C9917642121DB20007D2DE3 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				8C9917652121DB53007D2DE3 /* Events.storyboard */,
+				8C9917672121DD77007D2DE3 /* EventsTableViewController.swift */,
+				8C99176B2121E024007D2DE3 /* EventTableViewCell.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		8C99176F212203ED007D2DE3 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				8C99177021220430007D2DE3 /* MockUrlSession.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,8 +274,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C99173F2121D932007D2DE3 /* LaunchScreen.storyboard in Resources */,
+				8C9917662121DB53007D2DE3 /* Events.storyboard in Resources */,
 				8C99173C2121D932007D2DE3 /* Assets.xcassets in Resources */,
-				8C99173A2121D930007D2DE3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,7 +300,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C9917372121D930007D2DE3 /* ViewController.swift in Sources */,
+				8C99177121220430007D2DE3 /* MockUrlSession.swift in Sources */,
+				8C99176C2121E024007D2DE3 /* EventTableViewCell.swift in Sources */,
+				8C99176E2121E2FD007D2DE3 /* HTTPClient.swift in Sources */,
+				8C9917682121DD77007D2DE3 /* EventsTableViewController.swift in Sources */,
+				8C99176A2121DDC4007D2DE3 /* Event.swift in Sources */,
 				8C9917352121D930007D2DE3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,7 +313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C99174A2121D932007D2DE3 /* TicketsAPPTests.swift in Sources */,
+				8C99177321220F73007D2DE3 /* HttpClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +341,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8C9917382121D930007D2DE3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8C9917392121D930007D2DE3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8C99173D2121D932007D2DE3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
