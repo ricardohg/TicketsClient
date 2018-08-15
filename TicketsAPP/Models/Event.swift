@@ -17,7 +17,7 @@ struct Event: Codable {
     let description: String
     let price: Double
     let imageurl: String
-    //let createdat: String
+    //let createdat: Date
     
 }
 

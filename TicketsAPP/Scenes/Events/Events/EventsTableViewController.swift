@@ -19,7 +19,7 @@ class EventsTableViewController: UITableViewController {
     }
     
     private func loadData() {
-                
+        
         Event.getEvents(limit: 2, offset: 0) {  [weak self] (events) in
             guard let events = events, let s = self else { return }
             s.events = events
@@ -33,7 +33,6 @@ class EventsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return events.count
     }
     
