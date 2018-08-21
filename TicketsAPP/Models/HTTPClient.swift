@@ -20,7 +20,7 @@ final class HTTPClient {
     
     let session: URLSessionProtocol
     
-    init(session: URLSessionProtocol) {
+    init(session: URLSessionProtocol = URLSession.shared) {
         self.session = session
     }
     
@@ -46,7 +46,7 @@ final class HTTPClient {
             let request = NSMutableURLRequest(url: urlRequest)
             
             request.httpMethod = HTTPMethod.get.rawValue
-            let task = session.dataTask(with: request as NSURLRequest) { (data, response, error) in
+            let task = session.task(with: request as URLRequest) { (data, response, error) in
                 callback(data, error)
             }
             task.resume()
@@ -60,15 +60,17 @@ final class HTTPClient {
         
         let request = NSMutableURLRequest(url: url)
         request.httpMethod = HTTPMethod.post.rawValue
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        if let params = parameters, let jsonData = try? JSONSerialization.data(withJSONObject: params, options: .prettyPrinted) {
+        if let params = parameters, let jsonData = try? JSONSerialization.data(withJSONObject: params, options: []) {
             request.httpBody = jsonData
             
         } else {
             print("Error constructing http body")
         }
         
-        let task = session.dataTask(with: request as NSURLRequest) { (data, response, error) in
+        let task = session.task(with: request as URLRequest) { (data, response, error) in
             callback(data, error)
         }
         task.resume()

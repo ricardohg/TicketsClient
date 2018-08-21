@@ -18,6 +18,10 @@
 		8C99176E2121E2FD007D2DE3 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C99176D2121E2FD007D2DE3 /* HTTPClient.swift */; };
 		8C99177121220430007D2DE3 /* MockUrlSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C99177021220430007D2DE3 /* MockUrlSession.swift */; };
 		8C99177321220F73007D2DE3 /* HttpClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C99177221220F73007D2DE3 /* HttpClientTests.swift */; };
+		8C9917782124B9E2007D2DE3 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9917772124B9E2007D2DE3 /* Auth.storyboard */; };
+		8C99177A2124C211007D2DE3 /* AuthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9917792124C211007D2DE3 /* AuthTableViewController.swift */; };
+		8C99177C2124CFD1007D2DE3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C99177B2124CFD1007D2DE3 /* User.swift */; };
+		8C99177E2124D129007D2DE3 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C99177D2124D129007D2DE3 /* Session.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,10 @@
 		8C99176D2121E2FD007D2DE3 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		8C99177021220430007D2DE3 /* MockUrlSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUrlSession.swift; sourceTree = "<group>"; };
 		8C99177221220F73007D2DE3 /* HttpClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClientTests.swift; sourceTree = "<group>"; };
+		8C9917772124B9E2007D2DE3 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		8C9917792124C211007D2DE3 /* AuthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTableViewController.swift; sourceTree = "<group>"; };
+		8C99177B2124CFD1007D2DE3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8C99177D2124D129007D2DE3 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +113,7 @@
 		8C9917332121D930007D2DE3 /* TicketsAPP */ = {
 			isa = PBXGroup;
 			children = (
+				8C9917752124B9A5007D2DE3 /* Auth */,
 				8C9917342121D930007D2DE3 /* AppDelegate.swift */,
 				8C9917632121DAD3007D2DE3 /* Models */,
 				8C9917622121DACD007D2DE3 /* Scenes */,
@@ -136,6 +145,7 @@
 		8C9917622121DACD007D2DE3 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				8C9917762124B9C4007D2DE3 /* Auth */,
 				8C9917642121DB20007D2DE3 /* Events */,
 			);
 			path = Scenes;
@@ -167,6 +177,24 @@
 				8C99177021220430007D2DE3 /* MockUrlSession.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		8C9917752124B9A5007D2DE3 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				8C99177B2124CFD1007D2DE3 /* User.swift */,
+				8C99177D2124D129007D2DE3 /* Session.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		8C9917762124B9C4007D2DE3 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				8C9917772124B9E2007D2DE3 /* Auth.storyboard */,
+				8C9917792124C211007D2DE3 /* AuthTableViewController.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +301,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C9917782124B9E2007D2DE3 /* Auth.storyboard in Resources */,
 				8C99173F2121D932007D2DE3 /* LaunchScreen.storyboard in Resources */,
 				8C9917662121DB53007D2DE3 /* Events.storyboard in Resources */,
 				8C99173C2121D932007D2DE3 /* Assets.xcassets in Resources */,
@@ -301,11 +330,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C99177121220430007D2DE3 /* MockUrlSession.swift in Sources */,
+				8C99177A2124C211007D2DE3 /* AuthTableViewController.swift in Sources */,
 				8C99176C2121E024007D2DE3 /* EventTableViewCell.swift in Sources */,
 				8C99176E2121E2FD007D2DE3 /* HTTPClient.swift in Sources */,
+				8C99177C2124CFD1007D2DE3 /* User.swift in Sources */,
 				8C9917682121DD77007D2DE3 /* EventsTableViewController.swift in Sources */,
 				8C99176A2121DDC4007D2DE3 /* Event.swift in Sources */,
 				8C9917352121D930007D2DE3 /* AppDelegate.swift in Sources */,
+				8C99177E2124D129007D2DE3 /* Session.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

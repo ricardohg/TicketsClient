@@ -9,6 +9,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Auth-->
+        <scene sceneID="TUD-0E-Neu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Auth" id="ll5-hG-nCC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d9l-QX-LFL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1041" y="-246"/>
+        </scene>
         <!--Root View Controller-->
         <scene sceneID="QT3-0q-Sxw">
             <objects>
@@ -69,7 +77,13 @@
                             <outlet property="delegate" destination="MqE-F0-LyA" id="tDs-EE-MDT"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="z7R-vM-syf"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="z7R-vM-syf">
+                        <barButtonItem key="rightBarButtonItem" title="User" id="sPv-qi-gRM">
+                            <connections>
+                                <segue destination="ll5-hG-nCC" kind="presentation" id="iGS-hf-8kR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6jr-pg-VAd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

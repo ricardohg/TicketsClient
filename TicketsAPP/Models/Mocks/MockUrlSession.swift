@@ -10,7 +10,7 @@ import Foundation
 
 protocol URLSessionProtocol {
     typealias DataTaskResult = (Data?, URLResponse? , Error?) -> Void
-    func dataTask(with request: NSURLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol
+    func task(with request: URLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol
 }
 
 protocol URLSessionDataTaskProtocol {
@@ -20,8 +20,9 @@ protocol URLSessionDataTaskProtocol {
 //MARK: conform to protocol
 
 extension URLSession: URLSessionProtocol {
-    func dataTask(with request: NSURLRequest, completionHandler: @escaping URLSessionProtocol.DataTaskResult) -> URLSessionDataTaskProtocol {
-        return dataTask(with: request.url!, completionHandler: completionHandler)
+    
+    func task(with request: URLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol {
+         return self.dataTask(with: request, completionHandler: completionHandler) as URLSessionDataTaskProtocol
     }
 }
 
@@ -35,15 +36,16 @@ class MockUrlSession: URLSessionProtocol {
     
     fileprivate (set) var lastURL: URL?
     fileprivate (set) var bodyData: Data?
+    fileprivate (set) var lastHTTPMethod: String?
     
-    func successHttpURLResponse(request: NSURLRequest) -> URLResponse {
+    func successHttpURLResponse(request: URLRequest) -> URLResponse {
         return HTTPURLResponse(url: request.url!, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: nil)!
     }
     
-    func dataTask(with request: NSURLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol {
+    func task(with request: URLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol {
         lastURL = request.url
         bodyData = request.httpBody
-        
+        lastHTTPMethod = request.httpMethod
         completionHandler(nextData, successHttpURLResponse(request: request), nextError)
         return nextDataTask
     }

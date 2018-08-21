@@ -14,13 +14,18 @@ class EventsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
         loadData()
-
+    }
+    
+    private func setupViews() {
+        title = NSLocalizedString("Events", comment:"Events")
+        tableView.tableFooterView = UIView()
     }
     
     private func loadData() {
         
-        Event.getEvents(limit: 2, offset: 0) {  [weak self] (events) in
+        Event.getEvents(limit: 3, offset: 0) {  [weak self] (events) in
             guard let events = events, let s = self else { return }
             s.events = events
             DispatchQueue.main.async {

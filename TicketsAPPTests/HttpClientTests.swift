@@ -38,6 +38,7 @@ class HttpClientTests: XCTestCase {
         }
         
         XCTAssert(session.lastURL == url)
+        XCTAssert(session.lastHTTPMethod == "GET")
     }
     
     func test_get_with_parameters() {
@@ -56,6 +57,7 @@ class HttpClientTests: XCTestCase {
         
         if let lastParams = session.lastURL?.queryParameters {
             XCTAssert(lastParams == params)
+            XCTAssert(session.lastHTTPMethod == "GET")
         }
         else {
             XCTAssert(false)
@@ -99,13 +101,14 @@ class HttpClientTests: XCTestCase {
         }
         
         let testJsonDictionary = ["test": "test"]
-        let jsonData = try! JSONSerialization.data(withJSONObject: testJsonDictionary, options: .prettyPrinted)
+        let jsonData = try! JSONSerialization.data(withJSONObject: testJsonDictionary, options: [])
         
         httpClient.post(url: url, parameters: testJsonDictionary) { (data, error) in
             //
         }
         
         XCTAssert(session.bodyData == jsonData)
+        XCTAssert(session.lastHTTPMethod == "POST")
     }
     
 }

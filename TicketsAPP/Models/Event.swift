@@ -25,7 +25,7 @@ struct EventResponse: Codable {
     let events: [Event]
 }
 
-// API Calls Handler
+// API Call Handler
 
 extension Event {
     
