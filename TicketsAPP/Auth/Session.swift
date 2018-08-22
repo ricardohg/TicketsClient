@@ -11,6 +11,8 @@ import Foundation
 private let authEndpoint = "https://escarlata.now.sh/auth"
 
 final class Session {
+    
+    typealias LoginCompletion = (Bool, Error?) -> ()
     static let shared = Session()
     
     private (set) var isActive = false
@@ -32,7 +34,7 @@ struct AuthResponse: Codable {
 
 extension Session {
     
-    func login(email: String, password: String) {
+    func login(email: String, password: String, completion: @escaping LoginCompletion) {
         
         guard let url = URL(string: authEndpoint) else { return }
         
@@ -47,14 +49,13 @@ extension Session {
             
             do {
                 let decoder = JSONDecoder()
-                let json = try! JSONSerialization.jsonObject(with: data, options: [])
                 let authResponse = try decoder.decode(AuthResponse.self, from: data)
                 Session.shared.startSession(token: authResponse.token)
-                //completion(eventsJson.events)
+                completion(true, nil)
                 
             }
             catch {
-                //completion(nil)
+                completion(false, error)
                 print(error)
             }
             

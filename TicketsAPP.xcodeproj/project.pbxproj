@@ -156,7 +156,6 @@
 			children = (
 				8C99176F212203ED007D2DE3 /* Mocks */,
 				8C9917692121DDC4007D2DE3 /* Event.swift */,
-				8C99176D2121E2FD007D2DE3 /* HTTPClient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -192,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				8C9917772124B9E2007D2DE3 /* Auth.storyboard */,
+				8C99176D2121E2FD007D2DE3 /* HTTPClient.swift */,
 				8C9917792124C211007D2DE3 /* AuthTableViewController.swift */,
 			);
 			path = Auth;

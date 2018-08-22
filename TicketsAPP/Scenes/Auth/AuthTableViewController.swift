@@ -19,12 +19,26 @@ class AuthTableViewController: UITableViewController {
     }
     
     private func setupView() {
+        #if DEBUG
+        
         emailTextField.text = "a.ricardohg@gmail.com"
         passwordTextField.text = "test"
+        
+        #endif
     }
 
     @IBAction func loginAction(_ sender: Any) {
-        Session.shared.login(email: emailTextField.text!, password: passwordTextField.text!)
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        Session.shared.login(email: emailTextField.text!, password: passwordTextField.text!) { [weak self] (success, error) in
+            
+            DispatchQueue.main.async {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                
+                if success {
+                    self?.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
     }
     
     @IBAction func dismissAction(_ sender: Any) {
