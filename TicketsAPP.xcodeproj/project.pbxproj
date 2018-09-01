@@ -22,6 +22,7 @@
 		8C99177A2124C211007D2DE3 /* AuthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9917792124C211007D2DE3 /* AuthTableViewController.swift */; };
 		8C99177C2124CFD1007D2DE3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C99177B2124CFD1007D2DE3 /* User.swift */; };
 		8C99177E2124D129007D2DE3 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C99177D2124D129007D2DE3 /* Session.swift */; };
+		8C991781212DF257007D2DE3 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C991780212DF257007D2DE3 /* UIViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		8C9917792124C211007D2DE3 /* AuthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTableViewController.swift; sourceTree = "<group>"; };
 		8C99177B2124CFD1007D2DE3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8C99177D2124D129007D2DE3 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		8C991780212DF257007D2DE3 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		8C9917332121D930007D2DE3 /* TicketsAPP */ = {
 			isa = PBXGroup;
 			children = (
+				8C99177F212DF231007D2DE3 /* Extensions */,
 				8C9917752124B9A5007D2DE3 /* Auth */,
 				8C9917342121D930007D2DE3 /* AppDelegate.swift */,
 				8C9917632121DAD3007D2DE3 /* Models */,
@@ -195,6 +198,14 @@
 				8C9917792124C211007D2DE3 /* AuthTableViewController.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		8C99177F212DF231007D2DE3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8C991780212DF257007D2DE3 /* UIViewController+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,6 +342,7 @@
 			files = (
 				8C99177121220430007D2DE3 /* MockUrlSession.swift in Sources */,
 				8C99177A2124C211007D2DE3 /* AuthTableViewController.swift in Sources */,
+				8C991781212DF257007D2DE3 /* UIViewController+Extensions.swift in Sources */,
 				8C99176C2121E024007D2DE3 /* EventTableViewCell.swift in Sources */,
 				8C99176E2121E2FD007D2DE3 /* HTTPClient.swift in Sources */,
 				8C99177C2124CFD1007D2DE3 /* User.swift in Sources */,

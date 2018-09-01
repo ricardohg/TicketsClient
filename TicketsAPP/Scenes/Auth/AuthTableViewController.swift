@@ -28,11 +28,25 @@ class AuthTableViewController: UITableViewController {
     }
 
     @IBAction func loginAction(_ sender: Any) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        Session.shared.login(email: emailTextField.text!, password: passwordTextField.text!) { [weak self] (success, error) in
+        
+        guard let email = emailTextField.text, let password = passwordTextField.text, email.count > 0, password.count > 0 else {
             
+            show(errorMessage: NSLocalizedString("Please enter your credentials", comment: "credentialsError"))
+            return
+            
+        }
+        
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        Session.shared.login(email: email, password: password) { [weak self] (success, error) in
             DispatchQueue.main.async {
+                
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                
+                if let error = error {
+                    self?.show(errorMessage: error.localizedDescription)
+                    return
+                }
                 
                 if success {
                     self?.dismiss(animated: true, completion: nil)

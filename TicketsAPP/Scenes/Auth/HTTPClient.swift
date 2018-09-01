@@ -71,6 +71,9 @@ final class HTTPClient {
         }
         
         let task = session.task(with: request as URLRequest) { (data, response, error) in
+            
+            let res = response as? HTTPURLResponse
+            
             callback(data, error)
         }
         task.resume()
