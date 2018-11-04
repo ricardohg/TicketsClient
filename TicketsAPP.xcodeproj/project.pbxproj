@@ -276,13 +276,16 @@
 				TargetAttributes = {
 					8C9917302121D930007D2DE3 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 					};
 					8C9917442121D932007D2DE3 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = 8C9917302121D930007D2DE3;
 					};
 					8C99174F2121D932007D2DE3 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = 8C9917302121D930007D2DE3;
 					};
 				};
@@ -523,7 +526,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ricardo.TicketsAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -541,7 +544,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ricardo.TicketsAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -561,7 +564,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ricardo.TicketsAPPTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TicketsAPP.app/TicketsAPP";
 			};
@@ -582,7 +585,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ricardo.TicketsAPPTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TicketsAPP.app/TicketsAPP";
 			};
@@ -602,7 +605,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ricardo.TicketsAPPUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = TicketsAPP;
 			};
@@ -622,7 +625,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ricardo.TicketsAPPUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = TicketsAPP;
 			};
