@@ -37,7 +37,7 @@ extension Event {
         let session = URLSession(configuration: URLSessionConfiguration.default)
         let client = HTTPClient(session: session)
         
-        client.get(url: url, parameters: ["limit":"\(limit)", "offset": "\(offset)"]) { (data, error) in
+        client.get(url: url, parameters: ["limit":"\(limit)", "offset": "\(offset)"]) { (data, response, error) in
             
             guard let data = data else { return }
             

@@ -33,7 +33,7 @@ class HttpClientTests: XCTestCase {
             
         }
         
-        httpClient.get(url: url, parameters: nil) { (data, error) in
+        httpClient.get(url: url, parameters: nil) { (data, response, error) in
             //
         }
         
@@ -51,7 +51,7 @@ class HttpClientTests: XCTestCase {
         
         let params = ["data": "test"]
         
-        httpClient.get(url: url, parameters: params) { (data, error) in
+        httpClient.get(url: url, parameters: params) { (data, response, error) in
             //
         }
         
@@ -74,7 +74,7 @@ class HttpClientTests: XCTestCase {
             fatalError("URL can't be empty")
         }
         
-        httpClient.get(url: url, parameters: nil) { (success, response) in
+        httpClient.get(url: url, parameters: nil) { (data, response, error) in
             // Return data
         }
         
@@ -82,12 +82,17 @@ class HttpClientTests: XCTestCase {
     }
     
     func test_get_should_return_data() {
+        
+        guard let url = URL(string: "https://mockurl") else {
+            fatalError("URL can't be empty")
+        }
+        
         let expectedData = "{}".data(using: .utf8)
         
         session.nextData = expectedData
         
         var actualData: Data?
-        httpClient.get(url: URL(string: "http://mockurl")!, parameters: nil) { (data, error) in
+        httpClient.get(url: url, parameters: nil) { (data, response, error) in
             actualData = data
         }
         
@@ -103,12 +108,45 @@ class HttpClientTests: XCTestCase {
         let testJsonDictionary = ["test": "test"]
         let jsonData = try! JSONSerialization.data(withJSONObject: testJsonDictionary, options: [])
         
-        httpClient.post(url: url, parameters: testJsonDictionary) { (data, error) in
-            //
+        var statusCode: Int?
+        
+        httpClient.post(url: url, parameters: testJsonDictionary) { (data, response, error) in
+            
+            let httpResponse = response as? HTTPURLResponse
+            statusCode = httpResponse?.statusCode
+
         }
         
         XCTAssert(session.bodyData == jsonData)
         XCTAssert(session.lastHTTPMethod == "POST")
+        XCTAssertNotNil(statusCode)
+        XCTAssert(statusCode ?? 0 == 200)
+        
+    }
+    
+    func test_forbidden_post_request_with_body() {
+        
+        guard let url = URL(string: "https://mockurl-fail") else {
+            fatalError("URL can't be empty")
+        }
+        
+        let testJsonDictionary = ["test": "test"]
+        let jsonData = try! JSONSerialization.data(withJSONObject: testJsonDictionary, options: [])
+        
+        var statusCode: Int?
+        
+        httpClient.post(url: url, parameters: testJsonDictionary) { (data, response, error) in
+            
+            let httpResponse = response as? HTTPURLResponse
+            statusCode = httpResponse?.statusCode
+            
+        }
+        
+        XCTAssert(session.bodyData == jsonData)
+        XCTAssert(session.lastHTTPMethod == "POST")
+        XCTAssertNotNil(statusCode)
+        XCTAssert(statusCode ?? 0 == 403)
+        
     }
     
 }

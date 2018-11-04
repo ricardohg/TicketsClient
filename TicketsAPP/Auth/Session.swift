@@ -43,7 +43,7 @@ extension Session {
             "email": email,
             "password": password
         ]
-        client.post(url: url, parameters: parameters) { (data, error) in
+        client.post(url: url, parameters: parameters) { (data, response, error) in
             
             guard let data = data else { return }
             

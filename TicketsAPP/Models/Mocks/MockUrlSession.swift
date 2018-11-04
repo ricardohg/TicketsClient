@@ -14,7 +14,7 @@ protocol URLSessionProtocol {
 }
 
 protocol URLSessionDataTaskProtocol {
-    func resume ()
+    func resume()
 }
 
 //MARK: conform to protocol
@@ -42,13 +42,27 @@ class MockUrlSession: URLSessionProtocol {
         return HTTPURLResponse(url: request.url!, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: nil)!
     }
     
+    func forbiddenHttpURLResponse(request: URLRequest) -> URLResponse {
+        return HTTPURLResponse(url: request.url!, statusCode: 403, httpVersion: "HTTP/1.1", headerFields: nil)!
+    }
+    
     func task(with request: URLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol {
         lastURL = request.url
         bodyData = request.httpBody
         lastHTTPMethod = request.httpMethod
-        completionHandler(nextData, successHttpURLResponse(request: request), nextError)
+        
+        var shouldSendForbiddenResponse = false
+        
+        if let url = lastURL, url.absoluteString != "https://mockurl" {
+            shouldSendForbiddenResponse = true
+        }
+        
+        let request = shouldSendForbiddenResponse ? forbiddenHttpURLResponse(request: request) : successHttpURLResponse(request: request)
+        
+        completionHandler(nextData, request, nextError)
         return nextDataTask
     }
+    
 
 }
 

@@ -15,7 +15,12 @@ final class HTTPClient {
         case post = "POST"
     }
     
-    typealias CompleteClosure = ((Data?, Error?) -> ())
+    enum StatusCode: Int {
+        case success = 200
+        case forbidden = 403
+    }
+    
+    typealias CompleteClosure = ((Data?, URLResponse?, Error?) -> ())
     typealias JSON = [String: Any]
     
     let session: URLSessionProtocol
@@ -47,7 +52,7 @@ final class HTTPClient {
             
             request.httpMethod = HTTPMethod.get.rawValue
             let task = session.task(with: request as URLRequest) { (data, response, error) in
-                callback(data, error)
+                callback(data, response, error)
             }
             task.resume()
         } else {
@@ -72,9 +77,7 @@ final class HTTPClient {
         
         let task = session.task(with: request as URLRequest) { (data, response, error) in
             
-            let res = response as? HTTPURLResponse
-            
-            callback(data, error)
+            callback(data, response, error)
         }
         task.resume()
         
